@@ -51,6 +51,9 @@ spec:
         release: {{ .Release.Name }}
 
     spec:
+      {{- with .Values.nodeSelector }}
+      nodeSelector: {{- toYaml . | nindent 8 }}
+      {{- end }}
       volumes:
         - name: models
           nfs:
