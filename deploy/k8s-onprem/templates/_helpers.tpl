@@ -103,6 +103,12 @@ If release name contains chart name it will be used as a full name.
 {{- printf "%s-%s" $basename_trimmed "ingress-grpc" -}}
 {{- end -}}
 
+{{- define "triton-inference-server-ingressnginx-http.name" -}}
+{{- $basename := include "triton-inference-server.name" . -}}
+{{- $basename_trimmed := $basename | trunc 50 | trimSuffix "-" -}}
+{{- printf "%s-%s" $basename_trimmed "ingress-nginx-http" -}}
+{{- end -}}
+
 {{/*
 Create chart name and version as used by the chart label.
 */}}

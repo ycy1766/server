@@ -41,6 +41,28 @@ nodeSelector: {}
 serverArgs:
   - '--model-repository=/models'
 
+ingress:
+  enabled: false
+  ingressClassName: nginx
+  labels: {}
+  # node-role.kubernetes.io/ingress: platform
+  # annotations: 
+  #   nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  #   nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
+  #   nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+  #   nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+  #   nginx.ingress.kubernetes.io/rewrite-target: /$2
+  #   nginx.ingress.kubernetes.io/send-timeout: "600"
+  #   nginx.ingress.kubernetes.io/use-regex: "true"
+  # path: "/triton-inference(/|$)(.*)"
+  hosts:
+  #   - a.a
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+
 traefik:
   ports:
     triton-http:
